@@ -223,7 +223,7 @@ We actively welcome your pull requests. Please see [CONTRIBUTING.md](CONTRIBUTIN
 
 # Acknowledgements
 
-Motionformer is built on top of [PySlowFast](https://github.com/facebookresearch/SlowFast) and [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) by [Ross Wightman](https://github.com/rwightman). We thank the authors for releasing their code. If you use our model, please consider citing these works as well:
+Motionformer is built on top of [PySlowFast](https://github.com/facebookresearch/SlowFast), [Timesformer](https://github.com/facebookresearch/TimeSformer) and [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) by [Ross Wightman](https://github.com/rwightman). We thank the authors for releasing their code. If you use our model, please consider citing these works as well:
 
 ```BibTeX
 @misc{fan2020pyslowfast,
@@ -232,6 +232,16 @@ Motionformer is built on top of [PySlowFast](https://github.com/facebookresearch
   title =        {PySlowFast},
   howpublished = {\url{https://github.com/facebookresearch/slowfast}},
   year =         {2020}
+}
+```
+
+```BibTeX
+@inproceedings{gberta_2021_ICML,
+    author  = {Gedas Bertasius and Heng Wang and Lorenzo Torresani},
+    title = {Is Space-Time Attention All You Need for Video Understanding?},
+    booktitle   = {Proceedings of the International Conference on Machine Learning (ICML)}, 
+    month = {July},
+    year = {2021}
 }
 ```
 
