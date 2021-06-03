@@ -189,7 +189,7 @@ pip install submitit
 
 To train Motionformer model on Kinetics using 8 nodes with 8 gpus each use the following command:
 ```
-python run_with_submitit.py --cfg configs/K400/motionformer_224_16x4.yaml --job_dir  /your/job/dir/${JOB_NAME}/ --num_shards 8 --use_volta32
+python run_with_submitit.py --cfg configs/K400/motionformer_224_16x4.yaml --job_dir  /your/job/dir/${JOB_NAME}/ --partition $PARTITION --num_shards 8 --use_volta32
 ```
 
 We provide a script for launching slurm jobs in [`slurm_scripts/run_multi_node_job.sh`](slurm_scripts/run_multi_node_job.sh).
