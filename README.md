@@ -66,6 +66,9 @@ Then, install the following packages:
 - scikit-learn: `pip install scikit-learn`
 - OpenCV: `pip install opencv-python`
 - tensorboard: `pip install tensorboard`
+- matplotlib: `pip install matplotlib`
+- pandas: `pip install pandas`
+- ffmeg: `pip install ffmpeg-python`
 
 Lastly, build the Motionformer codebase by running:
 ```
@@ -78,7 +81,7 @@ python setup.py build develop
 
 ## Dataset Preparation
 
-Please use the dataset preparation instructions provided in [DATASET.md](Motionformer/datasets/DATASET.md).
+Please use the dataset preparation instructions provided in [DATASET.md](slowfast/datasets/DATASET.md).
 
 ## Training the Default Motionformer
 
