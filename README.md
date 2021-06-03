@@ -70,6 +70,12 @@ Then, install the following packages:
 - pandas: `pip install pandas`
 - ffmeg: `pip install ffmpeg-python`
 
+OR:
+
+simply create conda environment with all packages just from yaml file:
+
+`conda env create -f environment.yml`
+
 Lastly, build the Motionformer codebase by running:
 ```
 git clone https://github.com/facebookresearch/Motionformer
