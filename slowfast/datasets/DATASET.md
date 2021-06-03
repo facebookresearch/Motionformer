@@ -17,10 +17,18 @@ path_to_video_N label_N
 ```
 
 You can use provided helper functions to create csv files:
+```
+cd data/kinetics_400
+python3 preprocess.py --root_dir $PATH_TO_ROOT_DIR --split_dir $SPLIT_DIR --mode $MODE
+```
+
+For example:
 
 ```
-python3 data/kinetics_400/preprocess.py --root_dir $PATH_TO_ROOT_DIR --split_dir $SPLIT_DIR
-python3 data/kinetics_600/preprocess.py --root_dir $PATH_TO_ROOT_DIR --split_dir $SPLIT_DIR
+cd data/kinetics_400
+python3 preprocess.py --root_dir /datasets01/kinetics/070618/400/ --split_dir train_avi-288p --mode train
+python3 preprocess.py --root_dir /datasets01/kinetics/070618/400/ --split_dir val_avi-288p --mode val
+python3 preprocess.py --root_dir /datasets01/kinetics/070618/400/ --split_dir val_avi-288p --mode test
 ```
 
 ## Something-Something V2

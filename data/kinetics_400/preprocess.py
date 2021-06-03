@@ -5,7 +5,9 @@ import glob
 import os
 
 
-def k400_preproces(root_dir='/datasets01/kinetics/070618/400/', split_dir='train'):
+def k400_preproces(
+    root_dir='/datasets01/kinetics/070618/400/', split_dir='train_avi-288p', mode='train'
+):
     data_prefix = os.path.join(root_dir, split_dir)
     files = list(sorted(glob.glob(os.path.join(data_prefix, '*', '*'))))
     classes = list(sorted(glob.glob(os.path.join(data_prefix, '*'))))
@@ -36,8 +38,15 @@ if __name__ == '__main__':
         type=str,
         help='name of dir of split'
     )
+    parser.add_argument(
+        '--mode', 
+        default='train', 
+        type=str,
+        help='name of dir of split'
+    )
     args = parser.parse_args()
     k400_preproces(
         root_dir=args.root_dir, 
-        split_dir=args.split_dir
+        split_dir=args.split_dir,
+        mode=args.mode
     )
