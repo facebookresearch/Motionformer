@@ -198,7 +198,7 @@ We provide a script for launching slurm jobs in [`slurm_scripts/run_multi_node_j
 sbatch slurm_scripts/run_multi_node_job.sh configs/K400/motionformer_224_16x4.yaml /your/job/dir/${JOB_NAME}/
 ```
 
-Please note that hyper-parameters in confgis were used with 8 nodes with 8 gpus (32 GB). Please scale batch-size, and learning-rate appropriately for your cluster configuration.
+Please note that hyper-parameters in configs were used with 8 nodes with 8 gpus (32 GB). Please scale batch-size, and learning-rate appropriately for your cluster configuration.
 
 ## Finetuning
 
