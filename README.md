@@ -175,6 +175,9 @@ sbatch slurm_scripts/test.sh configs/K400/motionformer_224_16x4.yaml path_to_you
 
 To train Motionformer via Slurm, please check out our single node Slurm training script [`slurm_scripts/run_single_node_job.sh`](slurm_scripts/run_single_node_job.sh).
 
+```
+sbatch slurm_scripts/run_single_node_job.sh configs/K400/motionformer_224_16x4.yaml /your/job/dir/${JOB_NAME}/
+```
 
 ## Multi-Node Training via Submitit
 
@@ -184,12 +187,18 @@ Distributed training is available via Slurm and submitit
 pip install submitit
 ```
 
-To train Motionformer model on Kinetics using 4 nodes with 8 gpus each use the following command:
+To train Motionformer model on Kinetics using 8 nodes with 8 gpus each use the following command:
 ```
-python run_with_submitit.py --cfg configs/K400/motionformer_224_16x4.yaml --job_dir  /your/job/dir/${JOB_NAME}/ --num_shards 4 --name ${JOB_NAME} --use_volta32
+python run_with_submitit.py --cfg configs/K400/motionformer_224_16x4.yaml --job_dir  /your/job/dir/${JOB_NAME}/ --partition $PARTITION --num_shards 8 --use_volta32
 ```
 
 We provide a script for launching slurm jobs in [`slurm_scripts/run_multi_node_job.sh`](slurm_scripts/run_multi_node_job.sh).
+
+```
+sbatch slurm_scripts/run_multi_node_job.sh configs/K400/motionformer_224_16x4.yaml /your/job/dir/${JOB_NAME}/
+```
+
+Please note that hyper-parameters in configs were used with 8 nodes with 8 gpus (32 GB). Please scale batch-size, and learning-rate appropriately for your cluster configuration.
 
 ## Finetuning
 
@@ -214,7 +223,7 @@ We actively welcome your pull requests. Please see [CONTRIBUTING.md](CONTRIBUTIN
 
 # Acknowledgements
 
-Motionformer is built on top of [PySlowFast](https://github.com/facebookresearch/SlowFast) and [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) by [Ross Wightman](https://github.com/rwightman). We thank the authors for releasing their code. If you use our model, please consider citing these works as well:
+Motionformer is built on top of [PySlowFast](https://github.com/facebookresearch/SlowFast), [Timesformer](https://github.com/facebookresearch/TimeSformer) and [pytorch-image-models](https://github.com/rwightman/pytorch-image-models) by [Ross Wightman](https://github.com/rwightman). We thank the authors for releasing their code. If you use our model, please consider citing these works as well:
 
 ```BibTeX
 @misc{fan2020pyslowfast,
@@ -223,6 +232,16 @@ Motionformer is built on top of [PySlowFast](https://github.com/facebookresearch
   title =        {PySlowFast},
   howpublished = {\url{https://github.com/facebookresearch/slowfast}},
   year =         {2020}
+}
+```
+
+```BibTeX
+@inproceedings{gberta_2021_ICML,
+    author  = {Gedas Bertasius and Heng Wang and Lorenzo Torresani},
+    title = {Is Space-Time Attention All You Need for Video Understanding?},
+    booktitle   = {Proceedings of the International Conference on Machine Learning (ICML)}, 
+    month = {July},
+    year = {2021}
 }
 ```
 
