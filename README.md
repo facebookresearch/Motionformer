@@ -67,6 +67,8 @@ Then, install the following packages:
 - OpenCV: `pip install opencv-python`
 - tensorboard: `pip install tensorboard`
 - matplotlib: `pip install matplotlib`
+- pandas: `pip install pandas`
+- ffmeg: `pip install ffmpeg-python`
 
 Lastly, build the Motionformer codebase by running:
 ```
