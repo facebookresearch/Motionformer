@@ -66,6 +66,7 @@ Then, install the following packages:
 - scikit-learn: `pip install scikit-learn`
 - OpenCV: `pip install opencv-python`
 - tensorboard: `pip install tensorboard`
+- matplotlib: `pip install matplotlib`
 
 Lastly, build the Motionformer codebase by running:
 ```
