@@ -23,7 +23,7 @@ We provide Motionformer models pretrained on Kinetics-400 (K400), Kinetics-600 (
 | Joint | K400 | 16 | 224 | 79.2 | 94.2 | [model](https://dl.fbaipublicfiles.com/motionformer/k400_joint_224_16x4.pyth) |
 | Divided | K400 | 16 | 224 | 78.5 | 93.8 | [model](https://dl.fbaipublicfiles.com/motionformer/k400_divided_224_16x4.pyth) |
 | Motionformer | K400 | 16 | 224 | 79.7 | 94.2 | [model](https://dl.fbaipublicfiles.com/motionformer/k400_motionformer_224_16x4.pyth) |
-| Motionformer-HR | K400 | 16 | 336 | 80.7 | 94.9 | [model](https://dl.fbaipublicfiles.com/motionformer/k400_motionformer_336_16x8.pyth) |
+| Motionformer-HR | K400 | 16 | 336 | 81.1 | 95.2 | [model](https://dl.fbaipublicfiles.com/motionformer/k400_motionformer_336_16x8.pyth) |
 | Motionformer-L | K400 | 32 | 224 | 80.2 | 94.8 | [model](https://dl.fbaipublicfiles.com/motionformer/k400_motionformer_224_32x3.pyth) |
 
 | name | dataset | # of frames | spatial crop | acc@1 | acc@5 | url |
