@@ -1,16 +1,17 @@
 # Motionformer
 
-This is an official pytorch implementation of paper [Keeping Your Eye on the Ball: Trajectory Attention in Video Transformers](XX). In this repository, we provide PyTorch code for training and testing our proposed Motionformer model. Motionformer use proposed *trajectory attention* to achieve state-of-the-art results on several video action recognition benchmarks such as Kinetics-400 and Something-Something V2.
+This is an official pytorch implementation of paper [Keeping Your Eye on the Ball: Trajectory Attention in Video Transformers](https://arxiv.org/abs/2106.05392). In this repository, we provide PyTorch code for training and testing our proposed Motionformer model. Motionformer use proposed *trajectory attention* to achieve state-of-the-art results on several video action recognition benchmarks such as Kinetics-400 and Something-Something V2.
 
 If you find Motionformer useful in your research, please use the following BibTeX entry for citation.
 
 ```BibTeX
-@article{patrick_trajectory,
-    author  = {Mandela Patrick, Dylan Campbell, Yuki Asano, Ishan Misra, Florian Metze, Christoph Feichtenhofer, Andrea Vedaldi and Jo\~{a}o F. Henriques},
-    title = {Keeping Your Eye on the Ball: Trajectory Attention in Video Transformers},
-    journal={ArXiv}, 
-    year={2021}, 
-    volume={abs/2003.04298}
+@misc{patrick2021keeping,
+      title={Keeping Your Eye on the Ball: Trajectory Attention in Video Transformers}, 
+      author={Mandela Patrick and Dylan Campbell and Yuki M. Asano and Ishan Misra Florian Metze and Christoph Feichtenhofer and Andrea Vedaldi and Jo\ão F. Henriques},
+      year={2021},
+      eprint={2106.05392},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
