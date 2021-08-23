@@ -144,7 +144,7 @@ class DividedAttention(nn.Module):
 
 
 class TrajectoryAttention(nn.Module):
-    def __init__(self, dim, num_heads=8, qkv_bias=False, attn_drop=0., proj_drop=0.):
+    def __init__(self, dim, num_heads=8, qkv_bias=False, attn_drop=0., proj_drop=0., use_original_code=False):
         super().__init__()
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
@@ -156,6 +156,12 @@ class TrajectoryAttention(nn.Module):
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
+        
+        # A typo in the original code meant that the value tensors for the temporal
+        # attention step were identical to the input instead of being multiplied by a
+        # learned projection matrix (v = x rather than v = Wx). The original code is
+        # kept to facilitate replication, but is not recommended.
+        self.use_original_code = use_original_code
 
     def forward(self, x, seq_len=196, num_frames=8, approx='none', num_landmarks=128):
         B, N, C = x.shape
@@ -241,12 +247,16 @@ class TrajectoryAttention(nn.Module):
         q2 = self.proj_q(x_diag)
         k2, v2 = self.proj_kv(x).chunk(2, dim=-1)
         q2 = rearrange(q2, f'b s (h d) -> b h s d', h=h)
-        x, k2, v2 = map(
-            lambda t: rearrange(t, f'b s f (h d) -> b h s f d', f=F,  h=h), (x, k2, v2))
         q2 *= self.scale
+        k2, v2 = map(
+            lambda t: rearrange(t, f'b s f (h d) -> b h s f d', f=F,  h=h), (k2, v2))
         attn = torch.einsum('b h s d, b h s f d -> b h s f', q2, k2)
         attn = attn.softmax(dim=-1)
-        x = torch.einsum('b h s f, b h s f d -> b h s d', attn, x)
+        if self.use_original_code:
+            x = rearrange(x, f'b s f (h d) -> b h s f d', f=F,  h=h)
+            x = torch.einsum('b h s f, b h s f d -> b h s d', attn, x)
+        else:
+            x = torch.einsum('b h s f, b h s f d -> b h s d', attn, v2)
         x = rearrange(x, f'b h s d -> b s (h d)')
 
         # concat back the cls token
