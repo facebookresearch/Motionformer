@@ -5,13 +5,11 @@ This is an official pytorch implementation of paper [Keeping Your Eye on the Bal
 If you find Motionformer useful in your research, please use the following BibTeX entry for citation.
 
 ```BibTeX
-@misc{patrick2021keeping,
-      title={Keeping Your Eye on the Ball: Trajectory Attention in Video Transformers}, 
-      author={Mandela Patrick and Dylan Campbell and Yuki M. Asano and Ishan Misra Florian Metze and Christoph Feichtenhofer and Andrea Vedaldi and Jo\ão F. Henriques},
-      year={2021},
-      eprint={2106.05392},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{patrick2021keeping,
+   title={Keeping Your Eye on the Ball: Trajectory Attention in Video Transformers}, 
+   author={Mandela Patrick and Dylan Campbell and Yuki M. Asano and Ishan Misra Florian Metze and Christoph Feichtenhofer and Andrea Vedaldi and Jo\ão F. Henriques},
+   year={2021},
+   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
 }
 ```
 
