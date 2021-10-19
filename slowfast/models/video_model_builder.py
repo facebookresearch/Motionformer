@@ -51,7 +51,7 @@ class VisionTransformer(nn.Module):
         self.attn_drop_rate = cfg.VIT.ATTN_DROPOUT
         self.head_act = cfg.VIT.HEAD_ACT
         self.cfg = cfg
-        
+
         # Patch Embedding
         self.patch_embed = vit_helper.PatchEmbed(
             img_size=224, 
@@ -126,7 +126,8 @@ class VisionTransformer(nn.Module):
                     drop=self.drop_rate, 
                     attn_drop=self.attn_drop_rate, 
                     drop_path=dpr[i], 
-                    norm_layer=norm_layer, 
+                    norm_layer=norm_layer,
+                    use_original_code=self.cfg.VIT.USE_ORIGINAL_TRAJ_ATTN_CODE
                 )
                 for i in range(self.depth)
             ])

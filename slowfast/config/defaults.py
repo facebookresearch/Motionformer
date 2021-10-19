@@ -889,6 +889,9 @@ _C.VIT.POS_EMBED = "separate"
 # Self-Attention layer
 _C.VIT.ATTN_LAYER = "trajectory"
 
+# Flag to use original trajectory attn code
+_C.VIT.USE_ORIGINAL_TRAJ_ATTN_CODE = True
+
 # Approximation type
 _C.VIT.APPROX_ATTN_TYPE = "none"
 

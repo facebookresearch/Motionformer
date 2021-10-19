@@ -106,6 +106,12 @@ DATA:
   PATH_TO_DATA_DIR: path_to_your_dataset
 ```
 
+We improved the trajectory attention from original code, and you can set the `VIT.USE_ORIGINAL_TRAJ_ATTN_CODE` flag to `False` to use it:
+```
+VIT:
+  USE_ORIGINAL_TRAJ_ATTN_CODE: False
+```
+
 To the yaml configs file, then you do not need to pass it to the command line every time.
 
 ## Using a Different Number of GPUs

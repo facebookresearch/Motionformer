@@ -144,7 +144,7 @@ class DividedAttention(nn.Module):
 
 
 class TrajectoryAttention(nn.Module):
-    def __init__(self, dim, num_heads=8, qkv_bias=False, attn_drop=0., proj_drop=0., use_original_code=False):
+    def __init__(self, dim, num_heads=8, qkv_bias=False, attn_drop=0., proj_drop=0., use_original_code=True):
         super().__init__()
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
@@ -269,7 +269,7 @@ class TrajectoryAttention(nn.Module):
 
 def get_attention_module(
     attn_type='joint', dim=768, num_heads=12, qkv_bias=False, 
-    attn_drop=0., proj_drop=0.
+    attn_drop=0., proj_drop=0., use_original_code=True
 ):
     if attn_type == 'joint':
         attn = JointSpaceTimeAttention(
@@ -278,7 +278,8 @@ def get_attention_module(
     elif attn_type == 'trajectory':
         attn = TrajectoryAttention(
             dim, num_heads=num_heads, qkv_bias=qkv_bias, 
-            attn_drop=attn_drop, proj_drop=proj_drop)
+            attn_drop=attn_drop, proj_drop=proj_drop,
+            use_original_code=use_original_code)
     return attn
 
 
@@ -287,13 +288,15 @@ class Block(nn.Module):
     def __init__(
             self, dim=768, num_heads=12, attn_type='trajectory', 
             mlp_ratio=4., qkv_bias=False, drop=0., attn_drop=0., 
-            drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm
+            drop_path=0., act_layer=nn.GELU, norm_layer=nn.LayerNorm,
+            use_original_code=True
         ):
         super().__init__()
         self.norm1 = norm_layer(dim)
         self.attn = get_attention_module(
             attn_type=attn_type, dim=dim, num_heads=num_heads, 
-            qkv_bias=qkv_bias, attn_drop=attn_drop, proj_drop=drop
+            qkv_bias=qkv_bias, attn_drop=attn_drop, proj_drop=drop,
+            use_original_code=use_original_code
         )
         self.drop_path = DropPath(drop_path) if drop_path > 0. else nn.Identity()
         self.norm2 = norm_layer(dim)
