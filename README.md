@@ -28,7 +28,7 @@ We provide Motionformer models pretrained on Kinetics-400 (K400), Kinetics-600 (
 | name | dataset | # of frames | spatial crop | acc@1 | acc@5 | url |
 | --- | --- | --- | --- | --- | --- | --- |
 | Motionformer | K600 | 16 | 224 | 81.6 | 95.6 | [model](https://dl.fbaipublicfiles.com/motionformer/k600_motionformer_224_16x4.pyth) |
-| Motionformer-HR | K600 | 16 | 336 | 82.7 | 96.1 | [model](https://dl.fbaipublicfiles.com/motionformer/k600_motionformer_336_16x8.pyth) |
+| Motionformer-HR | K600 | 16 | 336 | 82.7 | 96.1 | [model](https://dl.fbaipublicfiles.com/motionformer/k600_motionformer_336_16x4.pyth) |
 | Motionformer-L | K600 | 32 | 224 | 82.2 | 96.0 | [model](https://dl.fbaipublicfiles.com/motionformer/k600_motionformer_224_32x3.pyth) |
 
 | name | dataset | # of frames | spatial crop | acc@1 | acc@5 | url |
@@ -68,6 +68,7 @@ Then, install the following packages:
 - matplotlib: `pip install matplotlib`
 - pandas: `pip install pandas`
 - ffmeg: `pip install ffmpeg-python`
+- detectron2 `pip install 'git+https://github.com/facebookresearch/detectron2.git'`
 
 OR:
 
